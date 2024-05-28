@@ -1,8 +1,11 @@
-- hosts: all
+---
+- name: upgrade
+  hosts: all
+  remote_user: pi
   become: true
   tasks:
   - name: Update and upgrade apt packages
-    apt:
+    yum:
       upgrade: yes
       update_cache: yes
       cache_valid_time: 86400 
